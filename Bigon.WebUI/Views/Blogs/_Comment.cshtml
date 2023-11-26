@@ -1,0 +1,17 @@
+﻿@using Bigon.Business.Modules.BlogPostModule.Commands.BlogPostAddCommentCommand
+@model BlogPostCommentDto
+
+<div class="single-comment@(Model.ParentId.HasValue?$" child":"")"
+     id="comment-@Model.Id">
+    <div class="comment-img f-left mr-30">
+        <img letters="@Model.Author" alt="@Model.Author">
+        <button data-id="@Model.Id" class="btn-reply" onclick="replyComment(this)">
+            <i class="fa fa-reply"></i>
+        </button>
+    </div>
+    <div class="comment-details fix">
+        <h4><a href="#">@Model.Author</a> <a class="replied" @(Model.ParentId.HasValue ? $" href=#comment-{Model.ParentId}" : "")>replied-@Model.ParentId</a></h4>
+        <span>@Model.CreatedAt.ToString("MMM dd ,yyyy")</span>
+        <p>@Model.Comment</p>
+    </div>
+</div>

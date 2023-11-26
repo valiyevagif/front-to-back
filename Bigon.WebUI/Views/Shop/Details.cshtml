@@ -1,0 +1,460 @@
+﻿@using Bigon.Business.Modules.ShopModule.Queries.ProductCatalogQuery
+@model ProductCatalogResponse
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="shopify-section">
+    <div class="main-product-thumbnail">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="zoom-image-viewer">
+                        <div>
+                            <div class="original">
+                                <img data-image-id="1" alt="@Model.Name" />
+                            </div>
+                            <div class="viewer">
+                                <img />
+                            </div>
+                            <div class="magnifier"></div>
+                        </div>
+                        <div>
+                            <ul class="owl-carousel">
+                                @foreach (var image in Model.Images)
+                                {
+                                    <li class="thumbnail" data-image="/uploads/images/@image"
+                                        data-zoom-image="/uploads/images/@image">
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <form method="post" action="/cart/add" id="AddToCartForm" accept-charset="UTF-8"
+                          class="shopify-product-form" enctype="multipart/form-data">
+                        <div class="thubnail-desc fix">
+                            <h3 id="popup_cart_title" class="product-header">@Model.Name</h3>
+                            <div class="rating-summary fix">
+                                <rate product-id="@Model.Id" value="@Model.Rate" />
+                            </div>
+                            <div class="single-product-price">
+                                <div class="pro-price">
+                                    <p>
+                                        <span id="ProductPrice" class="price">
+                                            <span class=money>@Model.Price.ToString("0.00₼")</span>
+                                        </span>
+                                        <del id="ComparePrice" class="prev-price">
+                                            <span class=money>$150.00</span>
+                                        </del>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product-cart-">
+                                <div class="box-quantity">
+                                    <div class="quality-button cart-plus-minus product-quantity-action quantity-selector">
+                                        <input type="text" value="1" name="quantity" class="cart-plus-minus-box">
+                                    </div><button name="add" type="submit" id="AddToCart" class="addtocart add-cart">
+                                        <span class="addto">Add To Cart</span>
+                                    </button>
+                                    <a class="action--wishlist tile-actions--btn flex wishlist-btn wishlist"
+                                       href="javascript: void(0)" button-wishlist
+                                       data-product-handle="accusantium-doloremque">
+                                        <i class="fa fa-heart-o" data-toggle="tooltip" title="Add to Wishlist"></i>
+                                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                                        <i class="fa fa-heart" data-toggle="tooltip" title="Remove Wishlist"></i>
+                                    </a>
+                                </div>
+                                @*<div class="Payment_button">
+                                    <div data-shopify="payment-button" data-has-selling-plan="false"
+                                         data-has-fixed-selling-plan="false" class="shopify-payment-button">
+                                        <button class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
+                                                disabled="disabled" aria-hidden="true"> </button>
+                                                <button class="shopify-payment-button__more-options shopify-payment-button__button--hidden"
+                                                                                                         disabled="disabled" aria-hidden="true"> </button>
+                                    </div>
+                                </div>*@
+                            </div>
+                            <div class="product-addto-links-text">
+                                <p>
+                                    There are many variations of passages of Lorem Ipsum available, but the majority have
+                                    suffered alteration in some form, by injected humour, or randomised words which
+                                    don't look even slightly believable.
+                                </p>
+                            </div>
+                            <div class="product-meta">
+                                <span class="posted-in">
+                                    <span>Tag:</span>
+                                    <a href="/collections/all/black">black</a>,
+                                    <a href="/collections/all/brown">brown</a>,
+                                    <a href="/collections/all/cyan">cyan</a>
+                                </span>
+                            </div>
+                            <!-- Share -->
+                            <div class="single-product-sharing">
+                                <span>Share:</span>
+                                <ul>
+                                    <li>
+                                        <a href="//www.facebook.com/sharer.php?u=https://bigon-5.myshopify.com/products/accusantium-doloremque"
+                                           title="Follow us on Facebook" target="_blank">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="//twitter.com/share?text=accusantium%20doloremque&amp;url=https://bigon-5.myshopify.com/products/accusantium-doloremque;source=webclient"
+                                           title="Follow us on Twitter" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="//plus.google.com/share?url=https://bigon-5.myshopify.com/products/accusantium-doloremque"
+                                           title="Share on Google+" title="Follow us on Google+" target="_blank">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="//pinterest.com/pin/create/button/?url=https://bigon-5.myshopify.com/products/accusantium-doloremque&amp;media=http://bigon-5.myshopify.com/cdn/shop/products/1_1024x1024.jpg?v=1523764933&amp;description=accusantium%20doloremque"
+                                           title="Follow us on Pinterest" target="_blank">
+                                            <i class="fa fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="custom-payment-options">
+                                <div>
+                                    <p>Guaranteed safe checkout</p>
+                                </div>
+                                <div class="methods-of-payment">
+                                    <img src="//bigon-5.myshopify.com/cdn/shopifycloud/shopify/assets/payment_icons/amazon-92e856f82cae5a564cd0f70457f11af4d58fa037cf6e5ab7adf76f6fd3b9cafe.svg"
+                                         height="35" alt="amazon payments" /><img src="//bigon-5.myshopify.com/cdn/shopifycloud/shopify/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg"
+                                                                                  height="35" alt="apple pay" /><img src="//bigon-5.myshopify.com/cdn/shopifycloud/shopify/assets/payment_icons/bitcoin-e41278677541fc32b8d2e7fa41e61aaab2935151a6048a1d8d341162f5b93a0a.svg"
+                                                                                                                     height="35" alt="bitcoin" /><img src="//bigon-5.myshopify.com/cdn/shopifycloud/shopify/assets/payment_icons/google_pay-c66a29c63facf2053bf69352982c958e9675cabea4f2f7ccec08d169d1856b31.svg"
+                                                                                                                                                      height="35" alt="google pay" /><img src="//bigon-5.myshopify.com/cdn/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg"
+                                                                                                                                                                                          height="35" alt="paypal" /><img src="//bigon-5.myshopify.com/cdn/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg"
+                                                                                                                                                                                                                          height="35" alt="visa" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Thumbnail Description End -->
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Product Thumbnail End -->
+</div>
+<div id="shopify-section-template--14146646016051__single-product-tab" class="shopify-section">
+    <!-- Product Thumbnail Description Start -->
+    <div class="thumnail-desc" id="section-template--14146646016051__single-product-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="main-thumb-desc">
+                        <li class="active"><a data-toggle="tab" href="#dtail">Details</a></li>
+                        <li><a data-toggle="tab" href="#review">Reviews</a></li>
+                        <li><a data-toggle="tab" href="#comments">Comment</a></li>
+                    </ul>
+                    <!-- Product Thumbnail Tab Content Start -->
+                    <div class="tab-content thumb-content border-default">
+                        <div id="dtail" class="tab-pane fade in active">
+                            <p>
+                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
+                                McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                                the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
+                                the cites of the word in classical literature, discovered the undoubtable source. Lorem
+                                Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+                                Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
+                                theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
+                                "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                            </p>
+                            <p>
+                                The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
+                                interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero
+                                are also reproduced in their exact original form, accompanied by English versions from
+                                the 1914 translation by H. Rackham.
+                            </p>
+                        </div>
+                        <div id="review" class="tab-pane">
+                            <div id="shopify-product-reviews" data-id="594907037747">
+                                <div class="spr-container">
+                                    <div class="spr-header">
+                                        <h2 class="spr-header-title">Customer Reviews</h2>
+                                        <div class="spr-summary">
+                                            <span class="spr-summary-caption">No reviews yet</span><span class="spr-summary-actions">
+                                                <a href='#' class='spr-summary-actions-newreview'
+                                                   onclick='SPR.toggleForm(594907037747);return false'>
+                                                    Write a
+                                                    review
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="spr-content">
+                                        <div class='spr-form' id='form_594907037747' style='display: none'></div>
+                                        <div class='spr-reviews' id='reviews_594907037747' style='display: none'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="comments" class="tab-pane">
+                            <div id="disqus_thread"></div>
+                            <noscript>
+                                Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                            </noscript>
+                        </div>
+                    </div>
+                    <!-- Product Thumbnail Tab Content End -->
+                </div>
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+</div>
+<div class="shopify-section">
+    <!-- Realted Product Start -->
+    <div class="related-product">
+        <div class="container">
+            <div class="border-default universal-padding">
+                <div class="group-title text-left">
+                    <h2>Related Products</h2>
+                </div>
+                <!-- Realted Product Activation Start -->
+                <div class="new-pro-active new-upsell-pro owl-carousel">
+                    <!-- Single Product Start -->
+                    <div class="single-product item 7602352488499">
+                        <!-- Product Image Start -->
+                        <div class="pro-img">
+                            <a href="/products/dummy-product-title">
+                                <img class="primary-img popup_cart_image"
+                                     src="//bigon-5.myshopify.com/cdn/shop/products/5_a0f6b5f1-78c1-4cff-a40f-db8e6cda3961_large.jpg?v=1523766129"
+                                     alt="single-product">
+                                <img class="secondary-img popup_cart_image"
+                                     src="//bigon-5.myshopify.com/cdn/shop/products/6_0685e3a5-fbf1-4dfa-aa47-7f86c5cfe897_large.jpg?v=1523766130"
+                                     alt="single-product">
+                            </a>
+                            <div class="product_coundown product_timing">
+                                <div data-countdown="2025/01/15"></div>
+                            </div>
+                        </div>
+                        <!-- Product Image End -->
+                        <!-- Product Content Start -->
+                        <div class="pro-content">
+                            <h4 class="popup_cart_title">
+                                <a href="/products/dummy-product-title">dummy Product title</a>
+                            </h4>
+                            <div class="product-rating">
+                                <span class="shopify-product-reviews-badge" data-id="594908151859"></span>
+                            </div>
+                            <p>
+                                <span class="price"><span class=money>$120.00</span></span>
+                                <del class="prev-price"><span class=money>$150.00</span></del>
+                            </p>
+                            <div class="pro-actions">
+                                <div class="actions-primary">
+                                    <a href="javascript:void(0);" class="action-btn"
+                                       onclick="Shopify.addItem(7602352488499, 1); return false;" title="Add to Cart"
+                                       data-toggle="tooltip" title="Add to cart">
+                                        <span class="addto">Add To Cart</span>
+                                    </a>
+                                </div>
+                                <div class="actions-secondary">
+                                    <a class="action--wishlist tile-actions--btn flex wishlist-btn wishlist"
+                                       href="javascript: void(0)" button-wishlist
+                                       data-product-handle="dummy-product-title">
+                                        <i class="fa fa-heart-o" data-toggle="tooltip" title="Add to Wishlist"></i>
+                                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                                        <i class="fa fa-heart" data-toggle="tooltip" title="Remove Wishlist"></i>
+                                    </a>
+                                    <a href="javascript:void(0);" class="action-btn quick-view"
+                                       onclick="quiqview('dummy-product-title')" data-toggle="modal"
+                                       data-target="#quickViewModal">
+                                        <i class="fa fa-eye" data-toggle="tooltip"
+                                           title="Quickview"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="sticker-new sale">Sale</span>
+                        <span class="sticker-new percent">-20%</span>
+                    </div>
+                    <!-- Single Product End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Realted Product End -->
+</div>
+<div class="shopify-section">
+    <!-- Upsell Product Start -->
+    <div class="related-product">
+        <div class="container">
+            <div class="border-default universal-padding">
+                <div class="group-title text-left">
+                    <h2>Unsell Products</h2>
+                </div>
+                <!-- Upsell Product Activation Start -->
+                <div class="new-pro-active new-upsell-pro owl-carousel">
+                    <!-- Single Product Start -->
+                    <div class="single-product item 7602354192435">
+                        <!-- Product Image Start -->
+                        <div class="pro-img">
+                            <a href="/products/dolore-magnam-aliquam">
+                                <img class="primary-img popup_cart_image"
+                                     src="//bigon-5.myshopify.com/cdn/shop/products/19_aa259c80-de93-4daf-83c5-3151d0daca95_large.jpg?v=1523765495"
+                                     alt="single-product">
+                                <img class="secondary-img popup_cart_image"
+                                     src="//bigon-5.myshopify.com/cdn/shop/products/20_6fbbd691-4445-4540-ac9b-5793e8ad3fe9_large.jpg?v=1523765495"
+                                     alt="single-product">
+                            </a>
+                        </div>
+                        <!-- Product Image End -->
+                        <!-- Product Content Start -->
+                        <div class="pro-content">
+                            <h4 class="popup_cart_title">
+                                <a href="/products/dolore-magnam-aliquam">
+                                    dolore magnam
+                                    aliquam
+                                </a>
+                            </h4>
+                            <div class="product-rating">
+                                <span class="shopify-product-reviews-badge" data-id="594908348467"></span>
+                            </div>
+                            <p>
+                                <span class="price"><span class=money>$100.00</span></span>
+                            </p>
+                            <div class="pro-actions">
+                                <div class="actions-primary">
+                                    <a href="javascript:void(0);" class="action-btn"
+                                       onclick="Shopify.addItem(7602354192435, 1); return false;" title="Add to Cart"
+                                       data-toggle="tooltip" title="Add to cart">
+                                        <span class="addto">Add To Cart</span>
+                                    </a>
+                                </div>
+                                <div class="actions-secondary">
+                                    <a class="action--wishlist tile-actions--btn flex wishlist-btn wishlist"
+                                       href="javascript: void(0)" button-wishlist
+                                       data-product-handle="dolore-magnam-aliquam">
+                                        <i class="fa fa-heart-o" data-toggle="tooltip" title="Add to Wishlist"></i>
+                                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                                        <i class="fa fa-heart" data-toggle="tooltip" title="Remove Wishlist"></i>
+                                    </a>
+                                    <a href="javascript:void(0);" class="action-btn quick-view"
+                                       onclick="quiqview('dolore-magnam-aliquam')" data-toggle="modal"
+                                       data-target="#quickViewModal">
+                                        <i class="fa fa-eye" data-toggle="tooltip"
+                                           title="Quickview"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Product End -->
+
+                </div>
+                <!-- Upsell Product Activation End -->
+            </div>
+        </div>
+    </div>
+    <!-- Upsell Product End -->
+</div>
+@section breadcrumbs{
+    <div class="breadcrumbs-section ptb-50">
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="breadcrumbs-inner">
+                            <nav class="" role="navigation" aria-label="breadcrumbs">
+                                <ul class="breadcrumb-list">
+                                    <li>
+                                        <a href="/" title="Back to the home page">Home</a>
+                                    </li>
+                                    <li>
+                                        <span>@Model.Name</span>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section addcss{
+    <link href="~/libs/zoom-image-viewer/zoom-image-viewer.css" rel="stylesheet" />
+    <style>
+        .zoom-image-viewer {
+            position: relative;
+            z-index: 1;
+        }
+
+            .zoom-image-viewer ul li.thumbnail {
+                height: 119px;
+            }
+    </style>
+}
+
+@section addjs{
+    <script src="~/libs/zoom-image-viewer/zoom-image-viewer.js"></script>
+    <script src="https://kit.fontawesome.com/1154e1d6ee.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('.zoom-image-viewer li.thumbnail').each((index, item) => {
+                const data = $(item).data();
+                $(item).css('background-image', `url(${data.image})`);
+            })
+                .click(function (e) {
+                    e.preventDefault();
+                    const data = $(e.currentTarget).data();
+                    $('.zoom-image-viewer .original > img').prop('src', data.image).zoom(2);
+                    $('.zoom-image-viewer .viewer > img').prop('src', data.image);
+                }).first().trigger('click');
+            $('#chooseproduct').modal({ backdrop: 'static', keyboard: false, show: true });
+            $('.owl-carousel').owlCarousel({
+                loop: false,
+                navText: [
+                    "<i class='fa fa-angle-left'></i>",
+                    "<i class='fa fa-angle-right'></i>"
+                ],
+                margin: 15,
+                smartSpeed: 1000,
+                nav: true,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 4
+                    },
+                    600: {
+                        items: 4
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+
+            $('ul.rate li').click(function (e) {
+                e.preventDefault();
+                let dataObj = $(e.currentTarget).data();
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("SetRate")",
+                    data: dataObj,
+                    success: function (response) {
+                        $(e.currentTarget).closest('ul').attr('class', `rate ${response}`);
+                    }
+                });
+
+                console.log(dataObj);
+            })
+        });
+    </script>
+}

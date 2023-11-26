@@ -1,0 +1,41 @@
+﻿@using Bigon.Business.Modules.ShopModule.Queries.ComplexFilterQuery
+
+@model IPagedResponse<ComplexFilterResponseDto>
+@foreach (var item in Model)
+{
+    <div class="single-product item" style="background-image:url(/uploads/images/@item.ImagePath);">
+        <div class="pro-img">
+            <a href="/products/accusantium-doloremque"></a>
+        </div>
+        <div class="pro-content">
+            <h4 class="popup_cart_title">
+                <a asp-action="details" asp-route-id="@item.Id">@item.Name</a>
+            </h4>
+            <rate value="@item.Rate" product-id="@item.Id"></rate>
+            <p class="prices">
+                <span class="price"><span class=money>@item.Price.ToString("0.00₼")</span></span>
+                <del class="prev-price"><span class=money>@item.Price.ToString("0.00₼")</span></del>
+            </p>
+            <div class="pro-actions">
+                <div class="actions-primary">
+                    <a class="action-btn add-to-cart" data-id="@item.Id"
+                       title="Add to Cart">
+                        <span class="addto">Add To Cart</span>
+                    </a>
+                </div>
+                <div class="actions-secondary">
+                    <a class="action--wishlist tile-actions--btn flex wishlist-btn wishlist" href="javascript: void(0)" button-wishlist data-product-handle="accusantium-doloremque">
+                        <i class="fa fa-heart-o" title="Add to Wishlist"></i>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        <i class="fa fa-heart" title="Remove Wishlist"></i>
+                    </a>
+                    <a href="javascript:void(0);" class="action-btn quick-view" onclick="quiqview('accusantium-doloremque')" data-toggle="modal" data-target="#quickViewModal">
+                        <i class="fa fa-eye" title="Quickview"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <span class="sticker-new sale">Sale</span>
+        <span class="sticker-new percent">-13%</span>
+    </div>
+}

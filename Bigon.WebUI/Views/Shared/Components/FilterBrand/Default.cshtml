@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Brand>
+
+<div class="border-default universal-padding mb-40 sidebar-widget">
+    <div class="group-title">
+        <h2>Brand</h2>
+    </div>
+    <ul class="manufactures-list">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a data-id="@item.Id" data-entity-type="brands">
+                    @item.Name
+                </a>
+            </li>
+        }
+    </ul>
+</div>

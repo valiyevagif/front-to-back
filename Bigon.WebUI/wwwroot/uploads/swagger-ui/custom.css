@@ -1,0 +1,28 @@
+﻿﻿.topbar-wrapper img[alt="Swagger UI"], .topbar-wrapper img {
+    visibility: hidden;
+}
+
+.topbar-wrapper {
+    margin-left: -20px;
+}
+
+    .topbar-wrapper .link:after {
+        content: 'Bigon Ecommerce';
+        color: #fff;
+        visibility: visible;
+        display: block;
+        position: absolute;
+        padding: 15px;
+    }
+
+.swagger-ui .response-col_status {
+    vertical-align: middle;
+}
+
+.swagger-ui table tbody tr td {
+    padding: unset;
+}
+
+.swagger-ui .model-box-control:focus, .swagger-ui .models-control:focus, .swagger-ui .opblock-summary-control:focus {
+    outline: none;
+}

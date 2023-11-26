@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Wishlist";
+}
+
+<div class="cart-main-area wish-list pb-50">
+    <div class="container">
+        <h2 class="text-capitalize sub-heading">wishlist</h2>
+        <div class="row">
+            <div class="col-md-12 col-12 col-12">
+                <form method="post">
+                    <div class="table-content table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product-remove">Remove</th>
+                                    <th class="product-thumbnail">Image</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-price">Unit Price</th>
+                                    <th class="product-quantity">Stock Status</th>
+                                    <th class="product-subtotal">add to cart</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dynamic-content">
+                                <tr>
+                                    <td class="product-remove">
+                                        <a>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    <td class="product-thumbnail">
+                                        <a href="#">
+                                            <img src="~/uploads/images/blogpost-3b791352-a03d-4f9f-8ced-2462a079ee84.png" alt="cart-image" />
+                                        </a>
+                                    </td>
+                                    <td class="product-name">
+                                        <a asp-controller="shop"
+                                           asp-action="details"
+                                           asp-route-id="1">
+                                            Adi
+                                        </a>
+                                    </td>
+                                    <td class="product-price"><span class="amount">10</span></td>
+                                    <td class="product-stock-status"><span>in stock</span></td>
+                                    <td class="product-add-to-cart">
+                                        <a onclick="addToBasket(event)" data-product-id="11">Səbətə əlavə et</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+﻿<div class="newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="main-news-desc">
+                    <div class="news-desc">
+                        <h3>Sign Up For <span>Newsletters</span></h3>
+                        <p>Get e-mail updates about our latest shop and special offers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="newsletter-box">
+                    <form id="newsletter-subscribe" method="post" autocomplete="off">
+                        <input class="subscribe" placeholder="Enter your email address" name="email" id="subscribe" type="text">
+                        <button type="submit" class="submit">subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section breadcrumbs{
+    <div class="breadcrumb-area ptb-50">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="wishlist.html">Wishlist</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}

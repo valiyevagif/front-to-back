@@ -1,0 +1,543 @@
+﻿@using Bigon.Business.Modules.ShopModule.Queries.ComplexFilterQuery
+
+@model IPagedResponse<ComplexFilterResponseDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="shopify-section-template--14146645688371__main" class="shopify-section">
+    <!-- Shop Page Start -->
+    <div class="main-shop-page" id="section-template--14146645688371__main">
+        <div class="container">
+            <!-- Row End -->
+            <div class="row">
+                <!-- Product Categorie List Start -->
+                <div class="col-md-push-3 col-md-9">
+
+
+
+                    <!-- Single Banner Start -->
+                    <div class="single-banner zoom mb-50">
+                        <a href="/collections/all"><img src="//bigon-5.myshopify.com/cdn/shop/files/13.jpg?v=1613514779" alt="slider-banner"></a>
+                    </div>
+                    <!-- Single Banner End -->
+                    <!-- Grid & List View Start -->
+                    <div class="grid-list-top border-default universal-padding fix mb-30">
+                        <div class="grid-list-view f-left">
+                            <div class="nav" role="tablist">
+                                <ul class="list-inline">
+                                    <li><a href="#" title="Grid view" class="change-view change-view--active" data-view="grid"><i class="fa fa-th"></i></a></li>
+                                    <li><a href="#" title="List view" class="change-view" data-view="list"><i class="fa fa-list-ul"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Toolbar Short Area Start -->
+                        <div class="main-toolbar-sorter f-right">
+                            <div class="toolbar-sorter">
+                                <label for="SortBy">Sort by</label>
+                                <select name="SortBy" id="SortBy">
+                                    <option value="manual">Featured</option>
+                                    <option value="best-selling">Best Selling</option>
+                                    <option value="title-ascending">Alphabetically, A-Z</option>
+                                    <option value="title-descending">Alphabetically, Z-A</option>
+                                    <option value="price-ascending">Price, low to high</option>
+                                    <option value="price-descending">Price, high to low</option>
+                                    <option value="created-descending">Date, new to old</option>
+                                    <option value="created-ascending">Date, old to new</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Toolbar Short Area End -->
+                    </div>
+                    <!-- Grid & List View End -->
+
+
+                    <script>
+                        /*============================================================================
+                          Inline JS because collection liquid object is only available
+                          on collection pages and not external JS files
+                        ==============================================================================*/
+                        Shopify.queryParams = {};
+                        if (location.search.length) {
+                            for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+                                aKeyValue = aCouples[i].split('=');
+                                if (aKeyValue.length > 1) {
+                                    Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+                                }
+                            }
+                        }
+
+                        $(function () {
+                            $('#SortBy')
+                                .val('title-ascending')
+                                .bind('change', function () {
+                                    Shopify.queryParams.sort_by = jQuery(this).val();
+                                    location.search = jQuery.param(Shopify.queryParams);
+                                }
+                                );
+                        });
+                    </script>
+
+                    <div class="main-categorie">
+                        <!-- Grid & List Main Area End -->
+                        <div class="tab-content border-default fix">
+                            <div id="grid-view" class="grid-layout">
+                                <partial name="_Products" model="@Model" />
+                            </div>
+                            <!-- #grid view End -->
+                        </div>
+                        <!-- Grid & List Main Area End -->
+                    </div>
+
+                    <!--Breadcrumb and Page Show Start -->
+                    <div class="breadcrubm-page-show border-default universal-padding mt-30 fix">
+                        <div class="breadcrumb-list-item">
+
+                            <div class="shop-pagination text-center breadcrumb-list-item ">
+                                <nav class="pagination">
+                                    <ul class="list-inline">
+                                        <li>
+
+                                        <li class="disabled prev">
+                                            <a href="">
+                                                <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                                            </a>
+                                        </li>
+
+
+
+
+                                        <li class="active"><a href="">1</a></li>
+
+
+
+
+                                        <li>
+                                            <a href="/collections/all?page=2" title="">2</a>
+                                        </li>
+
+
+
+                                        <li class="next"><a href="/collections/all?page=2" title="Next &raquo;"><span aria-hidden="true"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a></li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!--Breadcrumb and Page Show End -->
+
+
+                </div>
+                <!-- product Categorie List End -->
+                <!-- Sidebar Shopping Option Start -->
+                <div class="col-md-3 col-md-pull-9">
+                    <div class="sidebar white-bg storefront-filter">
+                        <form class="filter-form" name="testform" id="myform">
+                            @*      <div class="border-default universal-padding mb-40 sidebar-widget">
+                            <div class="group-title">
+                            <h2>Availability</h2>
+                            </div>
+                            <ul class="manufactures-list"><li>
+                            <input type="checkbox"
+                            name="filter.v.availability"
+                            value="1"
+                            id="Filter-availability-1"
+
+                            >
+                            <label for="Filter-availability-1">In stock (42)</label>
+                            </li><li>
+                            <input type="checkbox"
+                            name="filter.v.availability"
+                            value="0"
+                            id="Filter-availability-2"
+
+                            >
+                            <label for="Filter-availability-2">Out of stock (4)</label>
+                            </li></ul>
+                            </div>*@
+                            @await Component.InvokeAsync("FilterColor")
+                            @await Component.InvokeAsync("FilterPrice")
+                            @await Component.InvokeAsync("FilterBrand")
+                            @await Component.InvokeAsync("FilterMaterial")
+                            @await Component.InvokeAsync("FilterSize")
+                        </form>
+                    </div>
+
+                    <script>
+                        $('input[type="checkbox"]').click(function () {
+                            setTimeout(function () {
+                                $('form[name="testform"]').submit();
+                            }, 500);
+                        });
+                    </script>
+                </div>
+                <!-- Sidebar Shopping Option End -->
+
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Shop Page End -->
+    <style data-shopify>
+        #section-template--14146645688371__main {
+            padding-top: 0px;
+            padding-bottom: 50px;
+        }
+
+        @@media (min-width: 768px) and (max-width: 991px) {
+            #section-template--14146645688371__main {
+                padding-top: 0px;
+                padding-bottom: 50px;
+            }
+        }
+
+        @@media (max-width: 767px) {
+            #section-template--14146645688371__main {
+                padding-top: 0px;
+                padding-bottom: 50px;
+            }
+        }</style><style>
+
+
+
+    </style>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+@section breadcrumbs{
+    <div class="breadcrumbs-section ptb-50">
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="breadcrumbs-inner">
+
+                            <nav class="" role="navigation" aria-label="breadcrumbs">
+                                <ul class="breadcrumb-list">
+                                    <li>
+                                        <a href="/" title="Back to the home page">Home</a>
+                                    </li>
+                                    <li>
+
+
+
+                                        <span>Products</span>
+
+
+
+                                    </li>
+                                </ul>
+                            </nav>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section addcss{
+    <link href="~/libs/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link href="~/libs/zoom-image-viewer/zoom-image-viewer.css" rel="stylesheet" />
+    <style>
+        .zoom-image-viewer ul li.thumbnail {
+            height: 85px;
+        }
+    </style>
+}
+
+@section addjs{
+    <script src="~/libs/jquery-ui/jquery-ui.js"></script>
+    <script src="~/libs/zoom-image-viewer/zoom-image-viewer.js"></script>
+
+    <script src="https://kit.fontawesome.com/1154e1d6ee.js" crossorigin="anonymous"></script>
+    <script src="~/assets/js/additional.js"></script>
+    <script>
+
+        const filterObject = {
+            page: 1,
+            size: 8,
+            sizes: [],
+            colors: [],
+            brands: [],
+            materials: [],
+            price: {
+                min: 0,
+                max: 0
+            }
+        };
+
+        $(document).ready(function () {
+
+            let data = $("#price-range").data();
+
+            data = {
+                min: parseInt(data.min),
+                max: parseInt(data.max)
+            };
+
+            $("#price-range")
+                .attr('range', `${data.min}₼ - ${data.max}₼`)
+                .slider({
+                    range: true,
+                    min: data.min,
+                    max: data.max,
+                    values: [data.min, data.max],
+                    slide: function (e, ui) {
+                        $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
+                        filterObject.price.min = parseInt(ui.values[0]);
+                        filterObject.price.max = parseInt(ui.values[1]);
+
+                        filterObject.page = 1;
+                        search(filterObject);
+                    }
+                });
+
+            $('a[data-entity-type]').click(function (e) {
+                e.preventDefault();
+
+                $(e.currentTarget).toggleClass('active');
+
+                let dataObj = $(e.currentTarget).data();
+
+                if ($(e.currentTarget).hasClass('active')) {
+                    filterObject[dataObj.entityType].push(dataObj.id);
+                }
+                else {
+                    filterObject[dataObj.entityType] = filterObject[dataObj.entityType]
+                        .filter(item => item != dataObj.id)
+                }
+
+                filterObject.page = 1;
+                search(filterObject);
+            });
+
+
+            $('a.add-to-cart').unbind().click(function (e) {
+                e.preventDefault();
+
+                $('body').addClass('fade-active');
+
+                const productId = $(e.currentTarget).data('id');
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("ProductCatalog")",
+                    data: { productId },
+                    dataType: "html",
+                    success: function (response) {
+
+                        $('.dynamic-content').html(response);
+                        getPrice(productId, `@Url.Action("GetPrice")`);
+
+                        $("form#chooseproduct").on('hide.bs.modal', function () {
+                            $('body').removeClass('fade-active');
+                        });
+
+                        $('form#chooseproduct').submit(function (e) {
+                            e.preventDefault();
+
+                            let formData = new FormData(e.currentTarget);
+
+                            $.ajax({
+                                url: '@Url.Action("AddToBasket")',
+                                type: 'POST',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function (response) {
+                                    $(e.currentTarget).modal('hide');
+                                },
+                                error: function (response) {
+                                    console.log(response);
+                                }
+                            });
+                        });
+
+                        $('.zoom-image-viewer li.thumbnail').each((index, item) => {
+                            const data = $(item).data();
+                            $(item).css('background-image', `url(${data.image})`);
+                        })
+                            .click(function (e) {
+                                e.preventDefault();
+                                const data = $(e.currentTarget).data();
+                                $('.zoom-image-viewer .original > img').prop('src', data.image).zoom(2);
+                                $('.zoom-image-viewer .viewer > img').prop('src', data.image);
+                            }).first().trigger('click');
+
+                        $('#chooseproduct').modal({ backdrop: 'static', keyboard: false, show: true });
+                        $('.owl-carousel').owlCarousel({
+                            loop: false,
+                            navText: [
+                                "<i class='fa fa-angle-left'></i>",
+                                "<i class='fa fa-angle-right'></i>"
+                            ],
+                            margin: 15,
+                            smartSpeed: 1000,
+                            nav: true,
+                            dots: false,
+                            responsive: {
+                                0: {
+                                    items: 4
+                                },
+                                600: {
+                                    items: 4
+                                },
+                                1000: {
+                                    items: 5
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', onScroll);
+        });
+
+        function onScroll(){
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+            if (scrollTop + clientHeight >= scrollHeight - 828) {
+                console.log(scrollTop, scrollHeight, clientHeight);
+
+
+                filterObject.page = filterObject.page + 1;
+                search(filterObject);
+
+                window.removeEventListener('scroll', onScroll);
+            }
+        }
+
+
+        function search(filterObj) {
+
+            console.log(filterObject);
+
+            if ($.pid)
+                clearTimeout($.pid);
+
+            $.pid = setTimeout(function (filterData) {
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("Index")",
+                    data: filterData,
+                    dataType: "html",
+                    beforeSend: function () {
+                        if (filterData.page == 1) {
+                            $('#grid-view').html('sorgu gedir...');
+                        }
+                    },
+                    success: function (response) {
+                        if (filterData.page == 1) {
+                            $('#grid-view').html(response);
+                        }
+                        else {
+                            let elements = $(response);
+                            $('#grid-view').append(elements);
+                        }
+                        $('a.add-to-cart').unbind().click(function (e) {
+                            e.preventDefault();
+
+                            $('body').addClass('fade-active');
+
+                            const productId = $(e.currentTarget).data('id');
+
+                            $.ajax({
+                                type: "POST",
+                                url: "@Url.Action("ProductCatalog")",
+                                data: { productId },
+                                dataType: "html",
+                                success: function (response) {
+
+                                    $('.dynamic-content').html(response);
+                                    getPrice(productId, `@Url.Action("GetPrice")`);
+
+                                    $("form#chooseproduct").on('hide.bs.modal', function () {
+                                        $('body').removeClass('fade-active');
+                                    });
+
+                                    $('form#chooseproduct').submit(function (e) {
+                                        e.preventDefault();
+
+                                        let formData = new FormData(e.currentTarget);
+
+                                        $.ajax({
+                                            url: '@Url.Action("AddToBasket")',
+                                            type: 'POST',
+                                            data: formData,
+                                            processData: false,
+                                            contentType: false,
+                                            success: function (response) {
+                                                $(e.currentTarget).modal('hide');
+                                            },
+                                            error: function (response) {
+                                                console.log(response);
+                                            }
+                                        });
+                                    });
+
+                                    $('.zoom-image-viewer li.thumbnail').each((index, item) => {
+                                        const data = $(item).data();
+                                        $(item).css('background-image', `url(${data.image})`);
+                                    })
+                                        .click(function (e) {
+                                            e.preventDefault();
+                                            const data = $(e.currentTarget).data();
+                                            $('.zoom-image-viewer .original > img').prop('src', data.image).zoom(2);
+                                            $('.zoom-image-viewer .viewer > img').prop('src', data.image);
+                                        }).first().trigger('click');
+
+                                    $('#chooseproduct').modal({ backdrop: 'static', keyboard: false, show: true });
+                                    $('.owl-carousel').owlCarousel({
+                                        loop: false,
+                                        navText: [
+                                            "<i class='fa fa-angle-left'></i>",
+                                            "<i class='fa fa-angle-right'></i>"
+                                        ],
+                                        margin: 15,
+                                        smartSpeed: 1000,
+                                        nav: true,
+                                        dots: false,
+                                        responsive: {
+                                            0: {
+                                                items: 4
+                                            },
+                                            600: {
+                                                items: 4
+                                            },
+                                            1000: {
+                                                items: 5
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                        window.addEventListener('scroll', onScroll);
+                    }
+                });
+
+            }, 1500, filterObj);
+        }
+    </script>
+  }

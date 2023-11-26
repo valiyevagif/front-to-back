@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Brand>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Name</td>
+        <td class="operation">
+            <a class="btn btn-info" asp-action="details" asp-route-id="@item.Id">
+                <i class="fa fa-eye"></i>
+            </a>
+            <a class="btn btn-warning" asp-action="edit" asp-route-id="@item.Id">
+                <i class="fa fa-pencil"></i>
+            </a>
+            <a class="btn btn-danger" onclick="removeEntity(@item.Id,'@item.Name')">
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+}

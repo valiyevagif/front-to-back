@@ -1,0 +1,243 @@
+﻿@using Bigon.Business.Modules.ShopModule.Queries.ProductGetByIdQuery;
+@model ProductGetByIdDto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="page-header">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <div class="d-inline">
+                    <h4>Bootstrap Basic Tables</h4>
+                    <span>
+                        lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="../index.html">
+                            <i class="feather icon-home"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Bootstrap Table</a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Basic Table</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Basic Form Inputs</h5>
+                    <span>
+                        Add class of <code>.form-control</code> with
+                        <code>&lt;input&gt;</code> tag
+                    </span>
+                    <div class="card-header-right">
+                        <i class="icofont icofont-spinner-alt-5"></i>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <h4 class="sub-title">Basic Inputs</h4>
+                    <form method="post" enctype="multipart/form-data" id="frm">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="form-group">
+                                    <label class="control-label" asp-for="Name"></label>
+                                    <input type="text" class="form-control" asp-for="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" asp-for="StockKeepingUnit"></label>
+                                    <input type="text" class="form-control" asp-for="StockKeepingUnit">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" asp-for="Price"></label>
+                                    <input class="form-control" asp-for="Price">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" asp-for="ShortDescription"></label>
+                                    <input type="text" class="form-control" asp-for="ShortDescription">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" asp-for="BrandId"></label>
+                                    <select class="form-control" asp-for="BrandId" asp-items="@ViewBag.BrandId">
+                                        <option selected disabled>--- Secin ---</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" asp-for="CategoryId"></label>
+                                    <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.CategoryId">
+                                        <option selected disabled>--- Secin ---</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="imager-container" id="viewer1" name="images">
+                                    @foreach (var item in Model.Images)
+                                    {
+                                        <label thumb-url='/uploads/images/@item.Name' image-id="@item.Id" @(item.IsMain ? "checked=true" : "")></label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="tab-control w-100" role="tabcontrol">
+                                    <div class="tab-page" id="description" aria-title="Description" selected>
+                                        <div class="my-2">
+                                            <textarea class="form-control editor" id="editor" asp-for="Description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="tab-page" id="roles" aria-title="Catalog">
+                                        <table class="table table-input">
+                                            <thead>
+                                                <tr>
+                                                    <th>Color</th>
+                                                    <th>Size</th>
+                                                    <th>Material</th>
+                                                    <th class="cell-price">Price</th>
+                                                    <th class="operation" style="min-width: 20px;max-width: 20px;">
+                                                        <button class="btn btn-small btn-success" id="addNewCatalog">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="catalog-options">
+                                                @foreach (var item in Model.Catalog)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <input data-name="Id" type="hidden" value="@item.Id"/>
+                                                            <select data-name="ColorId" asp-items="@ViewBag.ColorId" selected-id="@item.ColorId" class="form-control select2"></select>
+                                                        </td>
+                                                        <td>
+                                                            <select data-name="SizeId" asp-items="@ViewBag.SizeId" selected-id="@item.SizeId" class="form-control select2"></select>
+                                                        </td>
+                                                        <td>
+                                                            <select data-name="MaterialId" asp-items="@ViewBag.MaterialId" selected-id="@item.MaterialId" class="form-control select2"></select>
+                                                        </td>
+                                                        <td class="cell-price">
+                                                            <input data-name="Price" type="number" value="@item.Price" class="form-control" />
+                                                        </td>
+                                                        <td class="operation" style="min-width: 20px;max-width: 20px;">
+                                                            <button class="btn btn-sm btn-danger text-white" onclick="removeCatalogItem(event)">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <input asp-for="Id" type="hidden"/>
+                                <a class="btn btn-info" asp-action="Index">Go Back</a>
+                                <button class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section addcss{
+    <link href="~/libs/multiple-imager/css/imager.css" rel="stylesheet" />
+    <link href="~/libs/tab-control/tab-control.css" rel="stylesheet" />
+}
+
+@section addjs{
+    <script src="~/libs/multiple-imager/js/imager.js"></script>
+    <script src="~/libs/ckeditor5/ckeditor.min.js"></script>
+    <script src="~/libs/tab-control/tab-control.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#viewer1').imgadd({
+                tnWidth: '120px',
+                tnHeight: '120px',
+                fontSize: '55px',
+                plusInnerHtml: '',
+                plusBtnClass: undefined
+            });
+
+            $('select[selected-id]').each((index, item) => {
+
+                let selectedId = $(item).attr('selected-id');
+
+                $(item).val(selectedId);
+
+                $(item).trigger('change').select2();;
+
+            });
+
+            $('#addNewCatalog').click(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("ProductCatalogItem")",
+                    success: function (response) {
+                        let row = $(response);
+                        let body = $('#catalog-options').append(row);
+
+                        $('.select2').select2();
+                    }
+                });
+            });
+
+            $('form#frm').submit(function (e) {
+                e.preventDefault();
+
+                $('tbody#catalog-options tr').each(function (index, item) {
+                    $(item).find('[data-name]').each(function (i, el) {
+                        let name = $(el).data('name');
+                        $(el).attr('name', `Catalog[${index}].${name}`);
+                    });
+                });
+
+                let formData = new FormData(e.currentTarget);
+
+                $.ajax({
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+            });
+
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(function (e) { console.log('ckeditor-error', e) });
+        });
+
+        function removeCatalogItem(e) {
+            $(e.currentTarget).closest('tr').remove();
+        }
+    </script>
+}

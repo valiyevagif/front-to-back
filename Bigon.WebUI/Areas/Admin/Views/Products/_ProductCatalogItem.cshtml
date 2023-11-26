@@ -1,0 +1,19 @@
+﻿<tr>
+    <td>
+        <select data-name="ColorId" asp-items="@ViewBag.ColorId" class="form-control select2"></select>
+    </td>
+    <td>
+        <select data-name="SizeId" asp-items="@ViewBag.SizeId" class="form-control select2"></select>
+    </td>
+    <td>
+        <select data-name="MaterialId" asp-items="@ViewBag.MaterialId" class="form-control select2"></select>
+    </td>
+    <td class="cell-price">
+        <input data-name="Price" type="number" class="form-control" />
+    </td>
+    <td class="operation" style="min-width: 20px;max-width: 20px;">
+        <button class="btn btn-sm btn-danger text-white" onclick="removeCatalogItem(event)">
+            <i class="fa fa-trash"></i>
+        </button>
+    </td>
+</tr>

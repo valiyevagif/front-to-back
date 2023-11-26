@@ -1,0 +1,72 @@
+.zoom-image-viewer {
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom-image-viewer > div:first-child {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  overflow: unset;
+}
+
+.zoom-image-viewer > div:first-child .original {
+  position: relative;
+  cursor: crosshair;
+}
+
+.zoom-image-viewer > div:first-child .original::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.zoom-image-viewer > div:first-child .original:hover ~ div {
+  display: block;
+}
+
+.zoom-image-viewer > div:first-child .viewer {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: none;
+}
+
+.zoom-image-viewer > div:first-child .original img,
+.zoom-image-viewer > div:first-child .viewer img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+}
+
+.zoom-image-viewer > div:first-child .magnifier {
+  position: absolute;
+  background: #000;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.zoom-image-viewer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.zoom-image-viewer ul li.thumbnail {
+  height: 150px;
+  object-fit: fill;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

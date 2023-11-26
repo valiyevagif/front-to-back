@@ -1,0 +1,135 @@
+﻿@using Bigon.Business.Modules.BlogPostModule.Queries.BlogPostGetByIdQuery
+@model BlogPostGetByIdDto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="page-header">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <div class="d-inline">
+                    <h4>Bootstrap Basic Tables</h4>
+                    <span>
+                        lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="../index.html"> <i class="feather icon-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Bootstrap Table</a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Basic Table</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Basic Form Inputs card start -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>Basic Form Inputs</h5>
+                    <span>
+                        Add class of <code>.form-control</code> with
+                        <code>&lt;input&gt;</code> tag
+                    </span>
+                    <div class="card-header-right">
+                        <i class="icofont icofont-spinner-alt-5"></i>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <h4 class="sub-title">Basic Inputs</h4>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" asp-for="Title"></label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="Title">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" asp-for="Body"></label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control editor" id="editor" asp-for="Body"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" asp-for="CategoryId"></label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="category" asp-for="CategoryId" asp-items="@ViewBag.CategoryId">
+                                    <option disabled selected>---Secin---</option>
+                                    <option value="1">Test</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" asp-for="ImagePath"></label>
+                            <div class="col-sm-10">
+                                <label class="imager" style="background-image:url(/uploads/images/@Model.ImagePath)">
+                                    <input type="file" class="form-control" name="file">
+                                </label>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Tags</label>
+                            <div class="col-sm-10">
+                                <select class="form-control"
+                                asp-items="@ViewBag.Tags"
+                                name="Tags"
+                                multiple 
+                                id="tag-tokenizer"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <a class="btn btn-info" asp-action="Index">Go Back</a>
+                                <button class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section addjs{
+    <script src="~/libs/ckeditor5/ckeditor.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#category').select2();
+
+            $("#tag-tokenizer").select2({
+                tags: true,
+                tokenSeparators: [',', ' ']
+            });
+
+            let tags = '@string.Join(",",Model.Tags)';
+
+            if (tags.length > 0) {
+                $('#tag-tokenizer').val(tags.split(',')).trigger('change');
+            }
+
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(function (e) { console.log('ckeditor-error', e) });
+        });
+    </script>
+}

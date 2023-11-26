@@ -1,0 +1,65 @@
+﻿<form class="modal" tabindex="-1" role="dialog" method="post" id="softlogin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="UserName" class="col-sm-2 col-form-label">UserName</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="UserName" name="UserName" placeholder="UserName">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Bagla</button>
+                <button type="submit" class="btn btn-primary">Daxil ol</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<script>
+    $(document).ready(function(){
+
+        $('form#softlogin').submit(function (e) {
+            e.preventDefault();
+
+            let formData = new FormData(e.currentTarget);
+
+            $.ajax({
+                url: '@Url.Action("Signin","Account")',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                   $(e.currentTarget).modal('hide');
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+
+        $.ajaxSetup({
+            statusCode: {
+                401: function () {
+                    $('#softlogin').modal({ backdrop: 'static', keyboard: false, show: true });
+                }
+            }
+        });
+    });
+</script>

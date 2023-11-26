@@ -1,0 +1,108 @@
+﻿@using Bigon.Business.Modules.ShopModule.Queries.ProductCatalogQuery
+@model ProductCatalogResponse
+@{
+    var sizes = Model.Catalog.Select(m => m.Size).Distinct().OrderBy(m => m.Id).ToArray();
+    var colors = Model.Catalog.Select(m => m.Color).Distinct().OrderBy(m => m.Id).ToArray();
+    var materials = Model.Catalog.Select(m => m.Material).Distinct().OrderBy(m => m.Id).ToArray();
+}
+
+<form class="modal" tabindex="-1" role="dialog" method="post" id="chooseproduct">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-lg-5">
+                        <div class="zoom-image-viewer">
+                            <div>
+                                <div class="original">
+                                    <img data-image-id="@Model.Id" alt="@Model.Name" />
+                                </div>
+                                <div class="viewer"><img /></div>
+                                <div class="magnifier"></div>
+                            </div>
+                            <div>
+                                <ul class="owl-carousel">
+                                    @for (int index = 0; index < Model.Images.Length; index++)
+                                    {
+                                        <li class="thumbnail @(index==0?"active":"")"
+                                            title="@Model.Name"
+                                            data-image="/uploads/images/@Model.Images[index]"
+                                            data-zoom-image="/uploads/images/@Model.Images[index]">
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-7">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label class="form-control-label">Adi</label>
+                                <p class="form-control">@Model.Name</p>
+                                <input type="hidden" name="ProductId" value="@Model.Id"/>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-control-label">Mehsul kodu</label>
+                                <p class="form-control">@Model.StockKeepingUnit</p>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-control-label">Qiymet</label>
+                                <p id="price" class="form-control"></p>
+                            </div>
+                            <div class="col-12 mt-5">
+                                <rate readonly="true" value="@Model.Rate"></rate>
+                            </div>
+                            <div class="col-12">
+                                <ul class="chooser mb-4">
+                                    @for (int i = 0; i < sizes.Length; i++)
+                                    {
+                                        var item = sizes[i];
+
+                                        <li>
+                                            <input type="radio" @(i == 0 ? "checked" : "") name="sizeId" id="size-@item.Id" value="@item.Id" />
+                                            <label for="size-@item.Id">@item.ShortName</label>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="col-12">
+                                <ul class="chooser mb-4">
+                                    @for (int i = 0; i < colors.Length; i++)
+                                    {
+                                        var item = colors[i];
+                                        <li>
+                                            <input type="radio" @(i == 0 ? "checked" : "") name="colorId" id="color-@item.Id" value="@item.Id" />
+                                            <label class="color-choose" for="color-@item.Id" style="background-color:@item.HexCode"></label>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="col-12">
+                                <ul class="chooser mb-4">
+                                    @for (int i = 0; i < materials.Length; i++)
+                                    {
+                                        var item = materials[i];
+                                        <li>
+                                            <input type="radio" @(i == 0 ? "checked" : "") name="materialId" id="material-@item.Id" value="@item.Id" />
+                                            <label for="material-@item.Id">@item.Name</label>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+                <button type="submit" class="btn btn-primary">Səbətə əlavə et</button>
+            </div>
+        </div>
+    </div>
+</form>

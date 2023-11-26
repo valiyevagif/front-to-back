@@ -1,0 +1,10 @@
+﻿@if (ViewBag.PriceInfo is not null)
+{
+    <div class="border-default universal-padding mtb-40">
+        <div class="group-title">
+            <h2>price</h2>
+        </div>
+        <div id="price-range" data-min="@ViewBag.PriceInfo.Min" data-max="@ViewBag.PriceInfo.Max"></div>
+    </div>
+}
+

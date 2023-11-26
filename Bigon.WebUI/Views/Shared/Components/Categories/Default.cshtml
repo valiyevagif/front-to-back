@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Category>
+
+<div class="vertical-menu">
+    <span class="categorie-title">all Categories</span>
+    <nav>
+        <ul class="vertical-menu-list menu-hidden">
+            @foreach (var item in Model.Where(m => m.ParentId == null))
+            {
+                <li>
+                    <a asp-controller="shop" asp-action="index" asp-route-category="@item.Name">@item.Name</a>
+                    <ul class="ht-dropdown megamenu category-menu">
+                        <li>
+                            <ul>
+                                @foreach (var child in Model.Where(m => m.ParentId == item.Id))
+                                {
+                                    <li class="megamenu-three-column fix">
+                                        <a href="collections/all.html" class="title">@child.Name</a>
+                                        <ul>
+                                            @foreach (var subchild in Model.Where(m => m.ParentId == child.Id))
+                                            {
+                                                <li><a href="collections/all.html">@subchild.Name</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                @*<li class="menu-img"><a href="collections/new-products.html" class="title"><img src="~/cdn.shopify.com/s/files/1/0019/7181/4451/collections/8_larged448.jpg?v=1523766507" alt="collection Image"></a></li>*@
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            }
+                
+
+        @*    <li>
+                <a href="collections/all.html">Kitchen</a>
+                <ul class="ht-dropdown megamenu category-menu">
+                    <li>
+                        <ul>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">Digital Cameras</a>
+                                <ul>
+                                    <li><a href="collections/all.html">camera one</a></li>
+                                    <li><a href="collections/all.html">camrea two</a></li>
+                                    <li><a href="collections/all.html">camera theree</a></li>
+                                    <li><a href="collections/all.html">camera four</a></li>
+                                </ul>
+                            </li>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">Camcorders</a>
+                                <ul>
+                                    <li><a href="collections/all.html">Camcorders new</a></li>
+                                    <li><a href="collections/all.html">Camcorders old</a></li>
+                                    <li><a href="collections/all.html">Camcorders hero</a></li>
+                                    <li><a href="collections/all.html">Camcorders tiny</a></li>
+                                </ul>
+                            </li>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">Photo Accessories</a>
+                                <ul>
+                                    <li><a href="collections/all.html">Cords and Cables</a></li>
+                                    <li><a href="collections/all.html">Microphones</a></li>
+                                    <li><a href="collections/all.html">gps accessories</a></li>
+                                    <li><a href="collections/all.html">Wireless Transmitters</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="collections/all.html">Smart Phone</a>
+                <ul class="ht-dropdown megamenu category-menu">
+                    <li>
+                        <ul>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">new Phones</a>
+                                <ul>
+                                    <li><a href="collections/all.html">phone one</a></li>
+                                    <li><a href="collections/all.html">phone two</a></li>
+                                    <li><a href="collections/all.html">phone three</a></li>
+                                    <li><a href="collections/all.html">phone four</a></li>
+                                </ul>
+                            </li>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">motion Phones</a>
+                                <ul>
+                                    <li><a href="collections/all.html">motion phone x</a></li>
+                                    <li><a href="collections/all.html">motion phone two</a></li>
+                                    <li><a href="collections/all.html">motion phone new</a></li>
+                                    <li><a href="collections/all.html">motion g5 </a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-img"><a href="collections/digital-cameras.html" class="title"><img src="~/cdn.shopify.com/s/files/1/0019/7181/4451/collections/12_large8245.jpg?v=1523774279" alt="collection Image"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="collections/all.html">Fashion</a>
+                <ul class="ht-dropdown megamenu category-menu">
+                    <li>
+                        <ul>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">Towers Only</a>
+                                <ul>
+                                    <li><a href="collections/all.html">On Sale</a></li>
+                                    <li><a href="collections/all.html">Free Shipping Eligible</a></li>
+                                    <li><a href="collections/all.html">Clearance</a></li>
+                                    <li><a href="collections/all.html">3D-Capable</a></li>
+                                </ul>
+                            </li>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">Gaming Desktops</a>
+                                <ul>
+                                    <li><a href="collections/all.html">desktop rumer</a></li>
+                                    <li><a href="collections/all.html">desktop razar</a></li>
+                                    <li><a href="collections/all.html">Gamer Ultra Desktop </a></li>
+                                    <li><a href="collections/all.html">Alpha Desktop</a></li>
+                                </ul>
+                            </li>
+                            <li class="megamenu-three-column fix">
+                                <a href="collections/all.html" class="title">modern Phones</a>
+                                <ul>
+                                    <li><a href="collections/all.html">tube phone one</a></li>
+                                    <li><a href="collections/all.html">tube phone two</a></li>
+                                    <li><a href="collections/all.html">new phone (16)</a></li>
+                                    <li><a href="collections/all.html">tube phone three</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="collections/all.html">Tablet</a></li>
+            <li><a href="collections/all.html">Electtronic</a></li>
+            <li><a href="collections/all.html">Books</a></li>
+            <li><a href="collections/all.html">Sports</a></li>*@
+            @*            <li class="side-show">
+            <a href="#"><i class="fa fa-plus-circle"></i><i class="fa fa-minus-circle "></i>More Categories</a>
+            </li>*@
+        </ul>
+    </nav>
+</div>

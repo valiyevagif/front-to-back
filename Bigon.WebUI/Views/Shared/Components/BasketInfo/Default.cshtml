@@ -1,0 +1,49 @@
+﻿@using Bigon.Business.Modules.ShopModule.Queries.BasketListQuery
+@model IEnumerable<BasketListItem>
+@{
+    int count = Model.Count();
+}
+
+<a asp-controller="Shop" asp-action="basket">
+    <i class="fa fa-shopping-basket"></i>
+    @if (count > 0)
+    {
+        <span class="cart-counter">@count</span>
+    }
+</a>
+
+@if (count > 0)
+{
+    <ul class="ht-dropdown main-cart-box" style="max-height: 300px;overflow-y: auto;">
+        <li>
+            @foreach (var item in Model)
+            {
+                <div class="single-cart-box basket-item-@item.CatalogId">
+                    <div class="cart-img">
+                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@item.ProductId">
+                            <img src="~/uploads/images/@item.ImagePath" alt="@item.Name" />
+                        </a>
+                    </div>
+                    <div class="cart-content">
+                        <h6>
+                            <a asp-controller="Shop" asp-action="Details" asp-route-id="@item.ProductId">@item.Name</a>
+                        </h6>
+                        <span>@Convert.ToInt32(item.Quantity) × @item.Price.ToString("0.00₼")</span>
+                    </div>
+                    <a class="del-icone" onclick="removeFromBasket(event, '@item.Name','@Url.Action("RemoveFromBasket","Shop")');return"
+                       data-catalog-id="@item.CatalogId"
+                       data-product-id="@item.ProductId"
+                       aria-remove-target=".basket-item-@item.CatalogId">
+                        <i class="fa fa-window-close-o"></i>
+                    </a>
+                </div>
+            }
+            <div class="cart-footer fix">
+                <h5>Cəmi :<span class="f-right total">@Model.Sum(m => m.Quantity * m.Price).ToString("0.00₼")</span></h5>
+                <div class="cart-actions">
+                    <a class="checkout" asp-controller="Shop" asp-action="Checkout">Ödəmək</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+}

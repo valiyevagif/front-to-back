@@ -1,0 +1,24 @@
+﻿@using Bigon.Business.Modules.BlogPostModule.Commands.BlogPostAddCommentCommand;
+
+@model IEnumerable<BlogPostCommentDto>
+
+<div class="comment-area recent-post">
+    <h3 class="sidebar-title">Comments</h3>
+    @foreach (var item in Model)
+    {
+        <div class="single-comment@(item.ParentId.HasValue?$" child":"")"
+             id="comment-@item.Id">
+            <div class="comment-img f-left mr-30">
+                <img letters="@item.Author" src="bigon-5.myshopify.com/cdn/shop/files/585e4beacb11b227491c3399_small.png?v=1613514798" alt="">
+                <button data-id="@item.Id" class="btn-reply" onclick="replyComment(this)">
+                    <i class="fa fa-reply"></i>
+                </button>
+            </div>
+            <div class="comment-details fix">
+                <h4><a href="#">@item.Author</a> <a class="replied" @(item.ParentId.HasValue ? $" href=#comment-{item.ParentId}" : "")>replied-@item.ParentId</a></h4>
+                <span>@item.CreatedAt.ToString("MMM dd ,yyyy")</span>
+                <p>@item.Comment</p>
+            </div>
+        </div>
+    }
+</div>

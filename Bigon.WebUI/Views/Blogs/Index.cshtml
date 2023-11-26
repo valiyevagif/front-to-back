@@ -1,0 +1,1725 @@
+﻿@using Bigon.Business.Modules.BlogPostModule.Queries.BlogPostGetAllQuery
+@using Bigon.Infrastructure.Entities;
+@model IPagedResponse<BlogPostGetAllDto>
+
+@{
+    ViewData["Title"] = "Paylaşımlar";
+}
+<div id="shopify-section-template--14146679603251__main" class="shopify-section">
+    <!-- Blog Area Start -->
+    <div class="blog-area" id="section-template--14146679603251__main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title text-center pb-50">
+                        <h3 class="section-info">ALL LATEST BLOGS</h3>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+                <div class="col-md-push-3 col-md-9 col-sm-12">
+                    <!-- Row End -->
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Single Blog Start -->
+                                <div class="single-blog item">
+                                    <div class="blog-img">
+                                        <a asp-action="Details" asp-route-slug="@item.Slug">
+                                            <img src="~/uploads/images/@item.ImagePath" alt="blog-image">
+                                        </a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-content-upper">
+                                            <h6 class="blog-title">
+                                                <a asp-action="Details" asp-route-slug="@item.Slug">@item.Title</a>
+                                            </h6>
+                                            <p>@item.Body.ClearHtml(200)</p>
+                                        </div>
+                                        <div class="blog-content-lower">
+                                            <a asp-action="Details" asp-route-slug="@item.Slug">Read more</a>
+                                            <span class="f-right">@item.PublishedAt.Value.ToString("dd/MMM/yy")</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Blog End -->
+                            </div>
+                        }
+
+
+                    </div>
+                    <!-- Row End -->
+                    <div class="breadcrubm-page-show border-default universal-padding mt-30 fix">
+                        <div class="breadcrumb-list-item">
+                            <div class="shop-pagination text-center breadcrumb-list-item ">
+                                @*@ViewContext.ActionDescriptor.*@
+                                @Url.ToPager(Model,ViewContext.ActionDescriptor)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-pull-9 col-sm-12">
+                    <div class="main-right-sidebar border-default universal-padding">
+                        <div class="categorie recent-post same-sidebar sidebar-widget mb-40">
+                            <h3 class="sidebar-title mb-30">Search</h3><div class="sidebar-search">
+                                <form action="https://bigon-5.myshopify.com/search" method="get" role="search">
+                                    <input type="hidden" name="type" value="product">
+                                    <input type="search" name="q" value="" placeholder="Search our store" aria-label="Search our store">
+                                    <button type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Single Sidebar Start  -->
+                        <div class="categorie recent-post same-sidebar category-sub-menu sidebar-widget mb-40">
+                            <h3 class="sidebar-title mt-30">Custom Menu</h3><ul class="sidebar-list">
+                                <li class="has-sub ">
+                                    <a href="../index.html">Home</a>
+                                    <ul>
+                                        <li><a href="../indexb21d.html?preview_theme_id=120458870835">Home Version 1</a></li>
+                                        <li><a href="../index0e94.html?preview_theme_id=120458903603">Home Version 2</a></li>
+                                        <li><a href="../indexac3b.html?preview_theme_id=120458969139">Home Version 3</a></li>
+                                        <li><a href="../indexa51e.html?preview_theme_id=120459001907">Home Version 4</a></li>
+                                        <li><a href="../indexfc63.html?preview_theme_id=120459034675">Home Version 5</a></li>
+                                        <li><a href="../index070f.html?preview_theme_id=120459067443">Home Version 6</a></li>
+                                        <li><a href="../index87da.html?preview_theme_id=120459100211">Home Version  RTL</a></li>
+                                    </ul>
+                                </li>
+                                <li class=""><a href="../pages/about.html">about us</a></li>
+                                <li class=""><a href="../pages/contact.html">contact us</a></li>
+                                <li class="has-sub active">
+                                    <a href="news.html">blog</a>
+                                    <ul>
+                                        <li><a href="news/temporibus-autem-quibusdam-3.html">blog details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-sub ">
+                                    <a href="../collections/all.html">shop</a>
+                                    <ul>
+                                        <li><a href="../collections/all.html">laptops</a></li>
+                                        <li><a href="../collections/all.html">monitors</a></li>
+                                        <li><a href="../collections/laptops.html">image</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-sub ">
+                                    <a href="../products/aliquam-consequat-mattis.html">Products</a>
+                                    <ul>
+                                        <li><a href="../products/cras-neque-metus.html">Simple Product</a></li>
+                                        <li><a href="../products/accusantium-doloremque.html">Variable Product</a></li>
+                                        <li><a href="../products/affiliate-link-product.html">Affiliate Link product </a></li>
+                                        <li><a href="../products/preorder-product.html">Product Preorder</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        @await Component.InvokeAsync("RecentPosts",new {size = 5 })
+
+                        <!-- Recent Post End -->
+                        <!-- Category Post Start -->
+                        <div class="categorie recent-post same-sidebar sidebar-widget mb-40">
+                            <h3 class="sidebar-title mb-30">Archive</h3>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    April 2018
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                        <li>&raquo; <a href="news/temporibus-autem-quibusdam-3.html">Temporibus autem quibusdam</a></li>
+                                        <li>&raquo; <a href="news/temporibus-autem-quibusdam-2.html">Temporibus autem quibusdam</a></li>
+                                        <li>&raquo; <a href="news/temporibus-autem-quibusdam-1.html">Temporibus autem quibusdam</a></li>
+                                        <li>&raquo; <a href="news/the-standard-chunk-of-lorem-ipsum-used-since-3.html">The Standard Chunk Of Lorem...</a></li>
+                                        <li>&raquo; <a href="news/the-standard-chunk-of-lorem-ipsum-used-since-2.html">The Standard Chunk Of Lorem...</a></li>
+                                        <li>&raquo; <a href="news/the-standard-chunk-of-lorem-ipsum-used-since-1.html">The Standard Chunk Of Lorem...</a></li>
+                                        <li>&raquo; <a href="news/it-is-a-long-established-fact-that-a-reader-will-3.html">It is a long established fa...</a></li>
+                                        <li>&raquo; <a href="news/it-is-a-long-established-fact-that-a-reader-will-2.html">It is a long established fa...</a></li>
+                                        <li>&raquo; <a href="news/it-is-a-long-established-fact-that-a-reader-will-1.html">It is a long established fa...</a></li>
+                                        <li>&raquo; <a href="news/temporibus-autem-quibusdam.html">Temporibus autem quibusdam</a></li>
+                                        <li>&raquo; <a href="news/the-standard-chunk-of-lorem-ipsum-used-since.html">The Standard Chunk Of Lorem...</a></li>
+                                        <li>&raquo; <a href="news/it-is-a-long-established-fact-that-a-reader-will.html">It is a long established fa...</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                </dt>
+                                <dd>
+                                    <ul class="blog_links">
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <!-- Meta Post Start -->
+                        <div class="categorie recent-post same-sidebar sidebar-widget mb-40">
+                            <h3 class="sidebar-title mb-30">Tags</h3>
+                            <ul class="tag-list">
+                                <li><a href="news/tagged/bestselling.html" class="">bestselling</a></li>
+                                <li><a href="news/tagged/chair.html" class="">chair</a></li>
+                                <li><a href="news/tagged/collection.html" class="">collection</a></li>
+                                <li><a href="news/tagged/door.html" class="">door</a></li>
+                                <li><a href="news/tagged/dress.html" class="">dress</a></li>
+                            </ul>
+                        </div>
+                        <!-- Meta Post End -->
+                    </div>
+                    <script>
+                        $(".sidebar-widget li.active a").removeAttr("href");
+                        $('.category-sub-menu li.has-sub > a').on('click', function () {
+                            $(this).removeAttr('href');
+                            var element = $(this).parent('li');
+                            if (element.hasClass('open')) {
+                                element.removeClass('open');
+                                element.find('li').removeClass('open');
+                                element.find('ul').slideUp();
+                            } else {
+                                element.addClass('open');
+                                element.children('ul').slideDown();
+                                element.siblings('li').children('ul').slideUp();
+                                element.siblings('li').removeClass('open');
+                                element.siblings('li').find('li').removeClass('open');
+                                element.siblings('li').find('ul').slideUp();
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Blog Area End --><style data-shopify>
+                              #section-template--14146679603251__main {
+                                  padding-top: 0px;
+                                  padding-bottom: 50px;
+                              }
+
+                              @@media (min-width: 768px) and (max-width: 991px) {
+                                  #section-template--14146679603251__main {
+                                      padding-top: 0px;
+                                      padding-bottom: 50px;
+                                  }
+                              }
+
+                              @@media (max-width: 767px) {
+                                  #section-template--14146679603251__main {
+                                      padding-top: 0px;
+                                      padding-bottom: 50px;
+                                  }
+                              }</style><style>
+                                           #section-template--14146679603251__main .section-title h3 {
+                                               color: #363f4d;
+                                           }
+    </style>
+</div>
+@section breadcrumbs{
+    <div class="breadcrumbs-section ptb-50">
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="breadcrumbs-inner">
+                            <nav class="" role="navigation" aria-label="breadcrumbs">
+                                <ul class="breadcrumb-list">
+                                    <li>
+                                        <a href="../index.html" title="Back to the home page">Home</a>
+                                    </li>
+                                    <li>
+                                        <span>News</span>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                                    }

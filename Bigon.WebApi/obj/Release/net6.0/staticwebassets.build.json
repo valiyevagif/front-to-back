@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HiXSt1OwxGNL/URg1HSmSUPzuFeuKLWsjfUXvwTtyog=",
+  "Source": "Bigon.WebApi",
+  "BasePath": "_content/Bigon.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

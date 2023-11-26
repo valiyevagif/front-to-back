@@ -1,0 +1,128 @@
+﻿@model IEnumerable<Size>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-header">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <div class="d-inline">
+                    <h4>Bootstrap Basic Tables</h4>
+                    <span>
+                        lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="../index.html"> <i class="feather icon-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Bootstrap Table</a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Basic Table</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-body">
+    <div class="card">
+        <div class="card-header">
+            <h5>Basic Table</h5>
+            <span>use class <code>table</code> inside table element</span>
+        </div>
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ShortName</th>
+                            <th class="operation">
+                                <a class="btn btn-success" asp-action="create">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.ShortName</td>
+                                <td class="operation">
+                                    <a class="btn btn-info" asp-action="details" asp-route-id="@item.Id">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <a class="btn btn-warning" asp-action="edit" asp-route-id="@item.Id">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a class="btn btn-danger" onclick="removeEntity(@item.Id,'@item.Name')">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section addjs{
+    <script src="~/libs/sweetalert/sweetalert.min.js"></script>
+    <script>
+        function removeEntity(id, name) {
+            swal({
+                title: "Diqqət!",
+                text: `${name} bu qeydi silmək istədiyinizdən əminsiniz?`,
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                buttons: ['Xeyr', 'Bəli']
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        let obj = { id };
+
+                        $.ajax({
+                            url: '@Url.Action("Delete")',
+                            type: 'POST',
+                            data: obj,
+                            success: function (response) {
+
+                                if (response.error == true) {
+                                    toastr.error(response.message, 'Error!');
+                                    return;
+                                }
+
+                                toastr.success(response.message, 'Success!');
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 2e3)
+                            },
+                            error: function (response) {
+                                console.warn(response);
+                            }
+                        });
+
+                    }
+                });
+        }
+    </script>
+}

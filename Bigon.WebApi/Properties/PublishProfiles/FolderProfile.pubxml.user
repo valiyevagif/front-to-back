@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.WebApi\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-10-08T13:18:19.9902943Z;True|2023-10-08T17:01:43.7062776+04:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

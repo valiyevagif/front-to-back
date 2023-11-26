@@ -1,0 +1,305 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Bigon.WebUI
+build_property.RootNamespace = Bigon.WebUI
+build_property.ProjectDir = D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.WebUI\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.WebUI
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/BlogPosts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1Bvc3RzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/BlogPosts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1Bvc3RzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/BlogPosts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1Bvc3RzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/BlogPosts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1Bvc3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Brands/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Brands/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Brands/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Brands/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Brands/_Body.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRzXF9Cb2R5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Categories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Categories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Categories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Colors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Colors/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Colors/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Colors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Dashboard/Components/CountOfStatistic/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXENvbXBvbmVudHNcQ291bnRPZlN0YXRpc3RpY1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Faqs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmFxc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Faqs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmFxc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Faqs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmFxc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Faqs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmFxc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Materials/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWF0ZXJpYWxzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Materials/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWF0ZXJpYWxzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Materials/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWF0ZXJpYWxzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Materials/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWF0ZXJpYWxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Products/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Products/_ProductCatalogItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcX1Byb2R1Y3RDYXRhbG9nSXRlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Shared/_Preloader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9QcmVsb2FkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Sizes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Sizes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Sizes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/Sizes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Account/Signin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWduaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Blogs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Blogs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Blogs/_Comment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcX0NvbW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/BasketInfo/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQmFza2V0SW5mb1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/Categories/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcmllc1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/Comments/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ29tbWVudHNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/FilterBrand/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRmlsdGVyQnJhbmRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/FilterColor/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRmlsdGVyQ29sb3JcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/FilterMaterial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRmlsdGVyTWF0ZXJpYWxcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/FilterPrice/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRmlsdGVyUHJpY2VcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/FilterSize/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRmlsdGVyU2l6ZVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/Components/RecentPosts/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmVjZW50UG9zdHNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/_Layout-X.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQtWC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/_Navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shared/_SoftLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Tb2Z0TG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shop/Basket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxCYXNrZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shop/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shop/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shop/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shop/Wishlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxXaXNobGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shop/_ChooseProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxfQ2hvb3NlUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/Shop/_Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxfUHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Solutions/P516/bigon-ecommerce-p516/bigon-commerce-backend/Bigon.WebUI/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,64 @@
+[18:37:05 INF] starting serilog in a console app...
+[18:37:12 INF] Information Log Message
+[18:37:12 WRN] Warning Log Message
+[18:37:12 ERR] Error Log Message
+[18:37:12 FTL] Critical Log Message
+[18:37:14 INF] Information Log Message
+[18:37:14 WRN] Warning Log Message
+[18:37:14 ERR] Error Log Message
+[18:37:14 FTL] Critical Log Message
+[18:37:28 ERR] Connection id "0HMV88FCH4DL2", Request id "0HMV88FCH4DL2:00000029": An unhandled exception was thrown by the application.
+System.ArgumentNullException: Value cannot be null. (Parameter 'request')
+   at Bigon.Business.Modules.ColorsModule.Commands.ColorAddCommand.ColorAddRequestHandler.Handle(ColorAddRequest request, CancellationToken cancellationToken) in D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.Business\Modules\ColorsModule\Commands\ColorAddCommand\ColorAddRequestHandler.cs:line 18
+   at Bigon.Infrastructure.Middlewares.TransactionalBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.Infrastructure\Middlewares\TransactionalBehaviour.cs:line 31
+   at Bigon.WebUI.Areas.Admin.Controllers.ColorsController.Create(ColorAddRequest request) in D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.WebUI\Areas\Admin\Controllers\ColorsController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.ExecuteWithFilterAsync(IHttpSocketAdapter injectScriptSocket, String requestId, HttpContext httpContext)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+[18:38:37 INF] starting serilog in a console app...
+[18:38:43 FTL] Critical Log Message
+[18:38:46 ERR] Connection id "0HMV88G7LSA4C", Request id "0HMV88G7LSA4C:00000007": An unhandled exception was thrown by the application.
+System.ArgumentNullException: Value cannot be null. (Parameter 'request')
+   at Bigon.Business.Modules.ColorsModule.Commands.ColorAddCommand.ColorAddRequestHandler.Handle(ColorAddRequest request, CancellationToken cancellationToken) in D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.Business\Modules\ColorsModule\Commands\ColorAddCommand\ColorAddRequestHandler.cs:line 18
+   at Bigon.Infrastructure.Middlewares.TransactionalBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.Infrastructure\Middlewares\TransactionalBehaviour.cs:line 31
+   at Bigon.WebUI.Areas.Admin.Controllers.ColorsController.Create(ColorAddRequest request) in D:\Solutions\P516\bigon-ecommerce-p516\bigon-commerce-backend\Bigon.WebUI\Areas\Admin\Controllers\ColorsController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.ExecuteWithFilterAsync(IHttpSocketAdapter injectScriptSocket, String requestId, HttpContext httpContext)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+[18:38:47 FTL] Critical Log Message

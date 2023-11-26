@@ -1,0 +1,72 @@
+﻿@using Bigon.Business.Modules.AccountModule.Commands.RegisterCommand
+@model RegisterRequest
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="register-area pb-50 login-form-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-offset-4 col-lg-4 col-md-offset-2 col-md-8  col-sm-12 col-xs-12">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text mb-30">
+                            <h2>Create Account</h2>
+                            <span></span>
+                        </div>
+                        <div class="login-form">
+                            <form method="post" id="create_customer">
+                                <input type="hidden" name="form_type" value="create_customer">
+                                <input type="hidden" name="utf8" value="✓">
+                                <label asp-for="Name" class="hidden-label"></label>
+                                <input asp-for="Name" class="input-full" placeholder="First Name" autocapitalize="words" autofocus="">
+
+                                <label asp-for="Surname" class="hidden-label"></label>
+                                <input asp-for="Surname" class="input-full" placeholder="Last Name" autocapitalize="words">
+
+                                <label asp-for="Email" class="hidden-label"></label>
+                                <input asp-for="Email" class="input-full" placeholder="Email" autocorrect="off" autocapitalize="off">
+
+                                <label asp-for="Password" class="hidden-label">Password</label>
+                                <input asp-for="Password" type="password" class="input-full" placeholder="Password">
+
+                                <label asp-for="ConfirmPassword" class="hidden-label">Password</label>
+                                <input asp-for="ConfirmPassword" type="password" class="input-full" placeholder="Password">
+                                <div class="button-box">
+                                    <div class="login-toggle-btn">
+                                        <button type="submit" class="section-button">Create</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section breadcrumbs{
+    <div class="breadcrumbs-section ptb-50">
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="breadcrumbs-inner">
+                            <nav class="" role="navigation" aria-label="breadcrumbs">
+                                <ul class="breadcrumb-list">
+                                    <li>
+                                        <a href="../index.html" title="Back to the home page">Home</a>
+                                    </li>
+                                    <li>
+                                        <span>Account</span>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
